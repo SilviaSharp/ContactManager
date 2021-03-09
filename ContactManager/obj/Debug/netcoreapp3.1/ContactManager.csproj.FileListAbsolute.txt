@@ -1,0 +1,8 @@
+D:\Sandbox\ContactManager\ContactManager\obj\Debug\netcoreapp3.1\ContactManager.csprojAssemblyReference.cache
+D:\Sandbox\ContactManager\ContactManager\obj\Debug\netcoreapp3.1\Shell.g.cs
+D:\Sandbox\ContactManager\ContactManager\obj\Debug\netcoreapp3.1\UserControls\SearchBar.g.cs
+D:\Sandbox\ContactManager\ContactManager\obj\Debug\netcoreapp3.1\UserControls\Sidebar.g.cs
+D:\Sandbox\ContactManager\ContactManager\obj\Debug\netcoreapp3.1\App.g.cs
+D:\Sandbox\ContactManager\ContactManager\obj\Debug\netcoreapp3.1\GeneratedInternalTypeHelper.g.cs
+D:\Sandbox\ContactManager\ContactManager\obj\Debug\netcoreapp3.1\ContactManager_MarkupCompile.cache
+D:\Sandbox\ContactManager\ContactManager\obj\Debug\netcoreapp3.1\ContactManager_MarkupCompile.lref
