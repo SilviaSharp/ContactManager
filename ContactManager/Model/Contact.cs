@@ -1,44 +1,40 @@
 ﻿using System;
-using System.Collections.Generic;
-using System.Text;
 
 namespace ContactManager.Model
 {
+    [Serializable]
     public class Contact : Notifier
     {
-        [Serializable]
-        private Address _address = new Address();
-        private string _cellPhone;
-        private string _firstName;
-        private string _homePhone;
+
         private Guid _id = Guid.Empty;
-        private string _imagePath;
-        private string _jobTitle;
-        private string _lastName;
-        private string _officePhone;
-        private string _organisation;
-        private string _primaryEmail;
-        private string _secondaryEmail;
 
         public Guid Id
         {
-            get { return _id; }
-            set { _id = value;
+            get => _id;
+            set
+            {
+                _id = value;
                 OnPropertyChanged("Id");
             }
         }
 
+        private string _imagePath;
+
         public string ImagePath
         {
-            get { return _imagePath; }
-            set { _imagePath = value;
+            get => _imagePath;
+            set
+            {
+                _imagePath = value;
                 OnPropertyChanged("ImagePath");
             }
         }
 
+        private string _firstName;
+
         public string FirstName
         {
-            get { return _firstName; }
+            get => _firstName;
             set
             {
                 _firstName = value;
@@ -46,9 +42,10 @@ namespace ContactManager.Model
             }
         }
 
+        private string _lastName;
         public string LastName
         {
-            get { return _lastName; }
+            get => _lastName;
             set
             {
                 _lastName = value;
@@ -56,9 +53,10 @@ namespace ContactManager.Model
             }
         }
 
+        private string _organisation;
         public string Organisation
         {
-            get { return _organisation; }
+            get => _organisation;
             set
             {
                 _organisation = value;
@@ -66,9 +64,10 @@ namespace ContactManager.Model
             }
         }
 
+        private string _jobTitle;
         public string JobTitle
         {
-            get { return _jobTitle; }
+            get => _jobTitle;
             set
             {
                 _jobTitle = value;
@@ -76,9 +75,25 @@ namespace ContactManager.Model
             }
         }
 
+        private string _homePhone;
+
+        public string HomePhone
+        {
+            get => _homePhone;
+            set
+            {
+                if (value != _homePhone)
+                {
+                    _homePhone = value;
+                    OnPropertyChanged("HomePhone");
+                }
+            }
+        }
+
+        private string _officePhone;
         public string OfficePhone
         {
-            get { return _officePhone; }
+            get => _officePhone;
             set
             {
                 _officePhone = value;
@@ -86,18 +101,21 @@ namespace ContactManager.Model
             }
         }
 
+        private string _cellPhone;
         public string CellPhone
         {
-            get { return _cellPhone; }
+            get => _cellPhone;
             set
             {
                 _cellPhone = value;
                 OnPropertyChanged("CellPhone");
             }
         }
+
+        private string _primaryEmail;
         public string PrimaryEmail
         {
-            get { return _primaryEmail; }
+            get => _primaryEmail;
             set
             {
                 _primaryEmail = value;
@@ -105,9 +123,10 @@ namespace ContactManager.Model
             }
         }
 
+        private string _secondaryEmail;
         public string SecondaryEmail
         {
-            get { return _secondaryEmail; }
+            get => _secondaryEmail;
             set
             {
                 _secondaryEmail = value;
@@ -115,9 +134,10 @@ namespace ContactManager.Model
             }
         }
 
+        private Address _address = new Address();
         public Address Address
         {
-            get { return _address; }
+            get => _address;
             set
             {
                 _address = value;
@@ -125,11 +145,15 @@ namespace ContactManager.Model
             }
         }
 
-        public string LookUpName
-        {
-            get {  return string.Format }
-        }
+        public string LookUpName => $"{_lastName}, {_firstName}";
 
+        #region Overrides of Object
 
+        public override string ToString() => LookUpName;
+#pragma warning disable 659
+        public override bool Equals(object obj) => obj is Contact other && other.Id == Id;
+#pragma warning restore 659
+
+        #endregion
     }
 }
